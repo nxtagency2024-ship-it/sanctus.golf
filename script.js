@@ -495,3 +495,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (golfThought) golfThought.textContent = devotion.golf;
 
 });
+const PASSWORD = "NXTGOLF";
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const enterBtn = document.getElementById("enter-btn");
+    const passwordInput = document.getElementById("password-input");
+
+    console.log("Password system loaded");
+
+    enterBtn.addEventListener("click", () => {
+
+        console.log("Button clicked");
+        console.log(passwordInput.value);
+
+        if (passwordInput.value.trim() === PASSWORD) {
+
+            console.log("Correct password");
+
+            document.getElementById("password-screen").style.display = "none";
+            document.getElementById("site-content").style.display = "block";
+
+        } else {
+
+            console.log("Wrong password");
+
+            document.getElementById("password-error").textContent = "Incorrect password.";
+
+        }
+
+    });
+
+});
