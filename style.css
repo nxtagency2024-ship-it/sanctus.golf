@@ -388,3 +388,56 @@ font-size:40px;
 }
 
 }
+/* ==========================
+   Daily Verse
+========================== */
+
+.daily-verse{
+    background:#12161d;
+    padding:90px 20px;
+}
+
+.verse-container{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.verse-label{
+    color:#D8B86B;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+#verse-text{
+    font-family:"Cormorant Garamond", serif;
+    font-size:42px;
+    line-height:1.5;
+    color:white;
+    margin-bottom:20px;
+}
+
+#verse-reference{
+    color:#A9AFB8;
+    font-size:20px;
+    margin-bottom:45px;
+}
+
+.golf-devotional{
+    background:#181C22;
+    border-radius:20px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.golf-devotional h3{
+    color:#D8B86B;
+    margin-bottom:15px;
+}
+
+#golf-thought{
+    color:#d7d7d7;
+    line-height:1.8;
+    font-size:18px;
+}
