@@ -34,12 +34,17 @@ header{
     width:100%;
     z-index:999;
 
-    background:rgba(15,17,21,.85);
+    background:transparent;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+
+    transition:background .3s ease, backdrop-filter .3s ease;
+}
+
+header.scrolled{
+    background:rgba(15,17,21,.75);
     backdrop-filter:blur(15px);
     -webkit-backdrop-filter:blur(15px);
-
-    transform:translateY(-100%);
-    transition:transform .35s ease;
 }
 
 header.show{
