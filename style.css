@@ -1,1 +1,390 @@
+/* =========================================
+   SANCTUS GOLF
+   Premium Mobile Landing Page
+========================================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:Inter,sans-serif;
+
+    background:#0f1115;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+/* NAVIGATION */
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    z-index:999;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(15,17,21,.75);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+nav{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+}
+
+.logo{
+
+    width:160px;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+
+}
+
+nav ul a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+nav ul a:hover{
+
+    color:#d4b15a;
+
+}
+
+.hamburger{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
+
+}
+
+.hamburger span{
+
+    width:28px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:20px;
+
+}
+
+/* HERO */
+
+.hero{
+
+    position:relative;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.hero-image{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to bottom,
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.70));
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:10;
+
+    max-width:750px;
+
+    padding:20px;
+
+}
+
+.hero-content p{
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#d4b15a;
+
+    margin-bottom:20px;
+
+}
+
+.hero-content h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:78px;
+
+    line-height:1;
+
+    margin-bottom:35px;
+
+}
+
+.hero-content a{
+
+    display:inline-block;
+
+    padding:18px 42px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:#0f1115;
+
+    background:#d4b15a;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.hero-content a:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 40px rgba(212,177,90,.35);
+
+}
+
+/* SECTION */
+
+section{
+
+    padding:110px 25px;
+
+}
+
+section h2{
+
+    text-align:center;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:52px;
+
+    margin-bottom:60px;
+
+}
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+
+    gap:35px;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.card{
+
+    background:#171a1f;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+}
+
+.card h3{
+
+    padding:30px;
+
+    text-align:center;
+
+    font-size:24px;
+
+}
+
+/* MISSION */
+
+#mission{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.mission-image img{
+
+    width:100%;
+
+    border-radius:22px;
+
+}
+
+.mission-text h2{
+
+    text-align:left;
+
+}
+
+.mission-text p{
+
+    color:#bdbdbd;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+nav ul{
+
+display:none;
+
+}
+
+.hamburger{
+
+display:flex;
+
+}
+
+.hero-content h1{
+
+font-size:52px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+#mission{
+
+grid-template-columns:1fr;
+
+}
+
+.logo{
+
+width:140px;
+
+}
+
+section h2{
+
+font-size:40px;
+
+}
+
+}
