@@ -481,7 +481,6 @@ function getDayOfYear(date) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    }
 
     const today = new Date();
 
