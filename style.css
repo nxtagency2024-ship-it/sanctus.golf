@@ -445,3 +445,66 @@ section h2{
     line-height:1.8;
     font-size:18px;
 }
+/* ==========================
+   Focus • Train • Elevate
+========================== */
+
+.pillars{
+
+    background:#11151b;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    text-align:center;
+
+    padding:45px 25px;
+
+}
+
+.pillar img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    margin-bottom:18px;
+
+}
+
+.pillar h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+    color:white;
+
+}
+
+.pillar p{
+
+    color:#a8adb5;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+}
+
+@media(max-width:900px){
+
+.pillars{
+
+grid-template-columns:1fr;
+
+gap:45px;
+
+}
+
+}
