@@ -154,29 +154,57 @@ opacity:1;
 transform:translateY(0);
 
 }
-// =============================
-// Sanctus Daily Scripture
-// =============================
+}
+/* ==========================
+   Daily Verse
+========================== */
 
-function getDayOfYear(date) {
-    const start = new Date(date.getFullYear(), 0, 1);
-    const diff = date - start;
-    return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+.daily-verse{
+    background:#12161d;
+    padding:90px 20px;
 }
 
-const today = new Date();
-let day = getDayOfYear(today);
+.verse-container{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
 
-// Wrap around safely if needed
-const devotion =
-    window.sgDevotionals[(day - 1) % window.sgDevotionals.length];
+.verse-label{
+    color:#D8B86B;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:25px;
+}
 
-document.getElementById("verse-text").textContent =
-    `"${devotion.verse}"`;
+#verse-text{
+    font-family:"Cormorant Garamond", serif;
+    font-size:42px;
+    line-height:1.5;
+    color:white;
+    margin-bottom:20px;
+}
 
-document.getElementById("verse-reference").textContent =
-    devotion.reference;
+#verse-reference{
+    color:#A9AFB8;
+    font-size:20px;
+    margin-bottom:45px;
+}
 
-document.getElementById("golf-thought").textContent =
-    devotion.golf;
+.golf-devotional{
+    background:#181C22;
+    border-radius:20px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.golf-devotional h3{
+    color:#D8B86B;
+    margin-bottom:15px;
+}
+
+#golf-thought{
+    color:#d7d7d7;
+    line-height:1.8;
+    font-size:18px;
 }
