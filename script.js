@@ -469,44 +469,39 @@ document.querySelectorAll("a").forEach(button => {
 // Daily Scripture
 // ===============================
 
-function getDayOfYear(date) {
-
-    const start = new Date(date.getFullYear(), 0, 1);
-
-    const diff = date - start;
-
-    return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
-
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 
+    function getDayOfYear(date) {
+        const start = new Date(date.getFullYear(), 0, 0);
+        const diff = date - start;
+        const oneDay = 1000 * 60 * 60 * 24;
+        return Math.floor(diff / oneDay);
+    }
 
     const today = new Date();
-
     const day = getDayOfYear(today);
 
     const devotion = sgDevotionals.find(item => item.day === day);
 
     if (!devotion) {
-
         console.error("No devotion found for day:", day);
-
         return;
-
     }
 
     const verseText = document.getElementById("verse-text");
     const verseReference = document.getElementById("verse-reference");
     const golfThought = document.getElementById("golf-thought");
 
-    if (verseText)
+    if (verseText) {
         verseText.textContent = `"${devotion.verse}"`;
+    }
 
-    if (verseReference)
+    if (verseReference) {
         verseReference.textContent = devotion.reference;
+    }
 
-    if (golfThought)
+    if (golfThought) {
         golfThought.textContent = devotion.golf;
+    }
 
 });
