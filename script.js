@@ -513,3 +513,24 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
+const PASSWORD = "NXTGOLF";
+
+const enterBtn = document.getElementById("enter-btn");
+const passwordInput = document.getElementById("password-input");
+
+function unlockSite() {
+    if (passwordInput.value === PASSWORD) {
+        document.getElementById("password-screen").style.display = "none";
+        document.getElementById("site-content").style.display = "block";
+    } else {
+        document.getElementById("password-error").textContent = "Incorrect password.";
+    }
+}
+
+enterBtn.addEventListener("click", unlockSite);
+
+passwordInput.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        unlockSite();
+    }
+});
