@@ -184,6 +184,15 @@ nav ul a:hover{
 
 .hero-content a{
     display:inline-block;
+    padding:18px 42px;
+    background:#d4b15a;
+    color:#0f1115;
+
+    text-decoration:none;   /* Removes underline */
+    font-weight:700;
+    border-radius:50px;
+
+    transition:.35s;
 }
 
 .hero-content a:hover{
