@@ -511,54 +511,63 @@ section h2{
 #password-screen{
     position:fixed;
     inset:0;
-    background:#0f1115;
+    background:#000;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
     z-index:999999;
     padding:30px;
 }
 
-.password-logo{
-    width:180px;
-    margin-bottom:30px;
-}
-
 #password-screen h1{
-    font-family:"Cormorant Garamond", serif;
-    font-size:52px;
-    margin-bottom:10px;
-}
-
-#password-screen p{
-    color:#bdbdbd;
-    margin-bottom:20px;
+    font-family:'Oswald', sans-serif;
+    font-size:56px;
+    font-weight:700;
+    letter-spacing:10px;
+    color:#fff;
+    margin-bottom:60px;
+    text-transform:uppercase;
 }
 
 #password-input{
-    width:300px;
-    max-width:90%;
-    padding:15px;
+    width:min(620px,90%);
+    height:72px;
     border:none;
-    border-radius:50px;
-    text-align:center;
-    font-size:16px;
-    margin-bottom:15px;
+    background:#d8d8d8;
+    padding:0 24px;
+    font-size:30px;
+    font-weight:600;
+    color:#111;
+    margin-bottom:35px;
+    outline:none;
+}
+
+#password-input::placeholder{
+    color:#ffffff;
+    font-weight:700;
 }
 
 #enter-btn{
-    padding:15px 40px;
+    width:min(620px,90%);
+    height:72px;
     border:none;
-    border-radius:50px;
-    background:#d4b15a;
+    background:#fff;
     color:#111;
+    font-family:'Oswald', sans-serif;
+    font-size:24px;
     font-weight:700;
+    letter-spacing:2px;
     cursor:pointer;
+    transition:.25s;
+}
+
+#enter-btn:hover{
+    background:#d4b15a;
 }
 
 #password-error{
     color:#d9534f;
-    margin-top:15px;
+    margin-top:25px;
+    font-size:18px;
 }
