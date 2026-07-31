@@ -425,16 +425,15 @@ window.addEventListener("scroll", () => {
 
     const header = document.querySelector("header");
 
-    if (!header) return;
+window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 60) {
-        header.style.background = "rgba(10,10,10,.92)";
+    if (window.scrollY > 50) {
+        header.classList.add("show");
     } else {
-        header.style.background = "rgba(15,17,21,.75)";
+        header.classList.remove("show");
     }
 
 });
-
 // ===============================
 // Hero Fade
 // ===============================
