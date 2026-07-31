@@ -37,9 +37,7 @@ header{
 
     z-index:999;
 
-    backdrop-filter:blur(18px);
-
-    background:rgba(15,17,21,.75);
+    background:#0f1115;
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
