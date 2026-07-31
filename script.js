@@ -3,27 +3,34 @@
 // Premium Interactions
 // ===============================
 
+// ===============================
 // Hamburger Menu
+// ===============================
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector("nav ul");
 
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    hamburger.classList.toggle("open");
-});
-
-// Close menu when clicking a link
-document.querySelectorAll("nav ul a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        hamburger.classList.remove("open");
+if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        hamburger.classList.toggle("open");
     });
-});
 
-// Scroll Reveal Animation
+    document.querySelectorAll("nav ul a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            hamburger.classList.remove("open");
+        });
+    });
+}
+
+// ===============================
+// Scroll Reveal
+// ===============================
+
 const revealElements = document.querySelectorAll("section");
 
-const reveal = () => {
+function reveal() {
 
     const trigger = window.innerHeight * 0.85;
 
@@ -32,179 +39,113 @@ const reveal = () => {
         const top = section.getBoundingClientRect().top;
 
         if (top < trigger) {
-
             section.classList.add("show");
-
         }
 
     });
 
-};
+}
 
 window.addEventListener("scroll", reveal);
-
 reveal();
 
+// ===============================
 // Navbar Background
+// ===============================
+
 window.addEventListener("scroll", () => {
 
     const header = document.querySelector("header");
 
-    if(window.scrollY > 60){
+    if (!header) return;
 
-        header.style.background="rgba(10,10,10,.92)";
-
-    }else{
-
-        header.style.background="rgba(15,17,21,.75)";
-
+    if (window.scrollY > 60) {
+        header.style.background = "rgba(10,10,10,.92)";
+    } else {
+        header.style.background = "rgba(15,17,21,.75)";
     }
 
 });
 
+// ===============================
 // Hero Fade
-window.addEventListener("scroll",()=>{
+// ===============================
 
-    const hero=document.querySelector(".hero-content");
+window.addEventListener("scroll", () => {
 
-    hero.style.opacity=1-window.scrollY/700;
+    const hero = document.querySelector(".hero-content");
 
-});
+    if (!hero) return;
 
-// Smooth Button Hover
-document.querySelectorAll("a").forEach(button=>{
-
-button.addEventListener("mouseenter",()=>{
-
-button.style.transform="translateY(-4px)";
+    hero.style.opacity = 1 - window.scrollY / 700;
 
 });
 
-button.addEventListener("mouseleave",()=>{
+// ===============================
+// Button Hover Animation
+// ===============================
 
-button.style.transform="translateY(0px)";
+document.querySelectorAll("a").forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+        button.style.transform = "translateY(-4px)";
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.style.transform = "translateY(0px)";
+    });
 
 });
 
+// ===============================
+// Daily Scripture
+// ===============================
+
+function getDayOfYear(date) {
+
+    const start = new Date(date.getFullYear(), 0, 1);
+
+    const diff = date - start;
+
+    return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (!window.sgDevotionals) {
+
+        console.error("verses.js failed to load.");
+
+        return;
+
+    }
+
+    const today = new Date();
+
+    const day = getDayOfYear(today);
+
+    const devotion = window.sgDevotionals.find(item => item.day === day);
+
+    if (!devotion) {
+
+        console.error("No devotion found for day:", day);
+
+        return;
+
+    }
+
+    const verseText = document.getElementById("verse-text");
+    const verseReference = document.getElementById("verse-reference");
+    const golfThought = document.getElementById("golf-thought");
+
+    if (verseText)
+        verseText.textContent = `"${devotion.verse}"`;
+
+    if (verseReference)
+        verseReference.textContent = devotion.reference;
+
+    if (golfThought)
+        golfThought.textContent = devotion.golf;
+
 });
-/* ===========================
-   Animations
-=========================== */
-
-section{
-
-opacity:0;
-
-transform:translateY(70px);
-
-transition:.8s;
-
-}
-
-section.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-/* Mobile Menu */
-
-nav ul.active{
-
-display:flex;
-
-position:absolute;
-
-top:80px;
-
-left:0;
-
-width:100%;
-
-padding:35px;
-
-background:#111;
-
-flex-direction:column;
-
-text-align:center;
-
-gap:30px;
-
-animation:slideDown .35s;
-
-}
-
-@keyframes slideDown{
-
-from{
-
-opacity:0;
-
-transform:translateY(-20px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-}
-/* ==========================
-   Daily Verse
-========================== */
-
-.daily-verse{
-    background:#12161d;
-    padding:90px 20px;
-}
-
-.verse-container{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-.verse-label{
-    color:#D8B86B;
-    letter-spacing:3px;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-#verse-text{
-    font-family:"Cormorant Garamond", serif;
-    font-size:42px;
-    line-height:1.5;
-    color:white;
-    margin-bottom:20px;
-}
-
-#verse-reference{
-    color:#A9AFB8;
-    font-size:20px;
-    margin-bottom:45px;
-}
-
-.golf-devotional{
-    background:#181C22;
-    border-radius:20px;
-    padding:35px;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.golf-devotional h3{
-    color:#D8B86B;
-    margin-bottom:15px;
-}
-
-#golf-thought{
-    color:#d7d7d7;
-    line-height:1.8;
-    font-size:18px;
-}
