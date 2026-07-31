@@ -490,25 +490,40 @@ section h2{
 
 @media (max-width:900px){
 
-    .pillars{
-        grid-template-columns:repeat(3,1fr);
-    }
+.pillars{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#11151b;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-    .pillar{
-        padding:25px 10px;
-    }
+.pillar{
+    flex:1;
+    text-align:center;
+    padding:40px 20px;
+}
 
-    .pillar img{
-        width:48px;
-        height:48px;
-    }
+.pillar:not(:last-child){
+    border-right:1px solid rgba(255,255,255,.08);
+}
 
-    .pillar h3{
-        font-size:20px;
-    }
+.pillar img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    margin-bottom:18px;
+}
 
-    .pillar p{
-        font-size:13px;
-    }
+.pillar h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:28px;
+    margin-bottom:10px;
+    color:#fff;
+}
 
+.pillar p{
+    color:#bdbdbd;
+    font-size:16px;
 }
