@@ -421,19 +421,19 @@ reveal();
 // Navbar Background
 // ===============================
 
-window.addEventListener("scroll", () => {
-
-    const header = document.querySelector("header");
+const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
+    if (!header) return;
 
-    if (window.scrollY > 50) {
-        header.classList.add("show");
+    if (window.scrollY > 30) {
+        header.classList.add("scrolled");
     } else {
-        header.classList.remove("show");
+        header.classList.remove("scrolled");
     }
-
 });
+
+
 // ===============================
 // Hero Fade
 // ===============================
@@ -444,9 +444,10 @@ window.addEventListener("scroll", () => {
 
     if (!hero) return;
 
-    hero.style.opacity = 1 - window.scrollY / 700;
+    hero.style.opacity = Math.max(0, 1 - window.scrollY / 700);
 
 });
+
 
 // ===============================
 // Button Hover Animation
@@ -459,10 +460,11 @@ document.querySelectorAll("a").forEach(button => {
     });
 
     button.addEventListener("mouseleave", () => {
-        button.style.transform = "translateY(0px)";
+        button.style.transform = "translateY(0)";
     });
 
 });
+
 
 // ===============================
 // Daily Scripture
@@ -482,56 +484,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const devotion = sgDevotionals.find(item => item.day === day);
 
-    if (!devotion) {
-        console.error("No devotion found for day:", day);
-        return;
-    }
+    if (!devotion) return;
 
     const verseText = document.getElementById("verse-text");
     const verseReference = document.getElementById("verse-reference");
     const golfThought = document.getElementById("golf-thought");
 
-    if (verseText) {
-        verseText.textContent = `"${devotion.verse}"`;
-    }
+    if (verseText) verseText.textContent = `"${devotion.verse}"`;
+    if (verseReference) verseReference.textContent = devotion.reference;
+    if (golfThought) golfThought.textContent = devotion.golf;
 
-    if (verseReference) {
-        verseReference.textContent = devotion.reference;
-    }
-
-    if (golfThought) {
-        golfThought.textContent = devotion.golf;
-    }
-
-});
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-const PASSWORD = "NXTGOLF";
-
-window.addEventListener("DOMContentLoaded", () => {
-    const enterBtn = document.getElementById("enter-btn");
-    const passwordInput = document.getElementById("password-input");
-
-    function unlockSite() {
-        if (passwordInput.value === PASSWORD) {
-            document.getElementById("password-screen").style.display = "none";
-            document.getElementById("site-content").style.display = "block";
-        } else {
-            document.getElementById("password-error").textContent = "Incorrect password.";
-        }
-    }
-
-    enterBtn.addEventListener("click", unlockSite);
-
-    passwordInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            unlockSite();
-        }
-    });
 });
