@@ -28,21 +28,23 @@ body{
 /* NAVIGATION */
 
 header{
-
     position:fixed;
-
     top:0;
-
+    left:0;
     width:100%;
-
     z-index:999;
 
-    background:transparent;
+    background:rgba(15,17,21,.85);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
 
-    border-bottom:none;
-
+    transform:translateY(-100%);
+    transition:transform .35s ease;
 }
 
+header.show{
+    transform:translateY(0);
+}
 nav{
 
     max-width:1200px;
