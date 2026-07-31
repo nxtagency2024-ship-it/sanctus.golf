@@ -154,5 +154,29 @@ opacity:1;
 transform:translateY(0);
 
 }
+// =============================
+// Sanctus Daily Scripture
+// =============================
 
+function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 1);
+    const diff = date - start;
+    return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+}
+
+const today = new Date();
+let day = getDayOfYear(today);
+
+// Wrap around safely if needed
+const devotion =
+    window.sgDevotionals[(day - 1) % window.sgDevotionals.length];
+
+document.getElementById("verse-text").textContent =
+    `"${devotion.verse}"`;
+
+document.getElementById("verse-reference").textContent =
+    devotion.reference;
+
+document.getElementById("golf-thought").textContent =
+    devotion.golf;
 }
