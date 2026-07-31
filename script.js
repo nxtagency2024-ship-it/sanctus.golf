@@ -87,3 +87,72 @@ button.style.transform="translateY(0px)";
 });
 
 });
+/* ===========================
+   Animations
+=========================== */
+
+section{
+
+opacity:0;
+
+transform:translateY(70px);
+
+transition:.8s;
+
+}
+
+section.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Mobile Menu */
+
+nav ul.active{
+
+display:flex;
+
+position:absolute;
+
+top:80px;
+
+left:0;
+
+width:100%;
+
+padding:35px;
+
+background:#111;
+
+flex-direction:column;
+
+text-align:center;
+
+gap:30px;
+
+animation:slideDown .35s;
+
+}
+
+@keyframes slideDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
